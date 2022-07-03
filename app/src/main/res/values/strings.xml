@@ -7,4 +7,5 @@
     <string name="login">Login</string>
     <string name="does_not_have_an_account">Does not have an account?</string>
     <string name="sign_up">Sign Up</string>
+    <string name="logout">Logout</string>
 </resources>
