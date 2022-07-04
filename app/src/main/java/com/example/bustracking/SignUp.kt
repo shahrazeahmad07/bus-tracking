@@ -39,7 +39,15 @@ class SignUp : AppCompatActivity() {
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Toast.makeText(this, "Sign up Successful..!", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this, Home::class.java))
+
+                            //! enabling proper view for proper user
+                            val partsOfEmail = email.split('@')
+                            //! For Bus Driver
+                            if (partsOfEmail[1] == "bus.com") {
+                                startActivity(Intent(this, Home::class.java))
+                            } else {
+                                startActivity(Intent(this, StudentHome::class.java))
+                            }
                             finish()
                         }
                         else {

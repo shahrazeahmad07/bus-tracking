@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -51,4 +52,11 @@ dependencies {
 
     // Firebase Auth
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
+    // Google play services for Google maps
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
+
+    // Getting current location
+    implementation 'com.karumi:dexter:6.0.1'
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
 }

@@ -4,14 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home"
+    android:background="@color/background"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/background">
+    android:gravity="center">
 
-    <Button
+
+    <TextView
+        android:id="@+id/tvLocationStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Route Schedule"
+        tools:text="Location is not sharing..!"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btnShareLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:text="Share Location"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="16sp"
@@ -19,33 +32,6 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/home_screen_button" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chat Box"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/home_screen_button"
-        android:layout_marginTop="15dp"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Complain Box"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/home_screen_button"
-        android:layout_marginTop="15dp"/>
-
 
 
 

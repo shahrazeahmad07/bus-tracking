@@ -36,7 +36,14 @@ class SignIn : AppCompatActivity() {
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Toast.makeText(this, "Login Successful!!!", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this, Home::class.java))
+                            //! enabling proper view for proper user
+                            val partsOfEmail = email.split('@')
+                            //! For Bus Driver
+                            if (partsOfEmail[1] == "bus.com") {
+                                startActivity(Intent(this, Home::class.java))
+                            } else {
+                                startActivity(Intent(this, StudentHome::class.java))
+                            }
                             finish()
                         }
                         else {
@@ -59,7 +66,15 @@ class SignIn : AppCompatActivity() {
         super.onStart()
         val user = mAuth.currentUser
         if (user != null) {
-            startActivity(Intent(this, Home::class.java))
+            //! enabling proper view for proper user
+            val username = mAuth.currentUser?.email.toString()
+            val partsOfEmail = username.split('@')
+            //! For Bus Driver
+            if (partsOfEmail[1] == "bus.com") {
+                startActivity(Intent(this, Home::class.java))
+            } else {
+                startActivity(Intent(this, StudentHome::class.java))
+            }
             finish()
         }
     }
