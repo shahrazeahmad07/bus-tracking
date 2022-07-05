@@ -1,7 +1,6 @@
 package com.example.bustracking
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bustracking.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -28,6 +27,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = "Bus: abc"
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -41,14 +41,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onDataChange(snapshot: DataSnapshot) {
 
 //                var dLatitude = snapshot.child("abc").child("longitude").value.toString().substring(1, snapshot.child("abc").child("longitude").value.toString().length-1)
-                val Longitude = snapshot.value
-                val Latitude = snapshot.value
-
-                Log.e("Longitude:", "$Longitude")
-                Log.e("Latitude:", "$Latitude")
+                mLatitude = snapshot.child("abc").child("latitude").value as Double
+                mLongitude = snapshot.child("abc").child("longitude").value as Double
 
                 val latLng = LatLng(mLatitude, mLongitude)
-                mMap.addMarker(MarkerOptions().position(latLng))
+                mMap.addMarker(MarkerOptions().position(latLng).title(""))
                 mMap.animateCamera(
                     CameraUpdateFactory.newLatLngZoom(
                         latLng, 12.0f
@@ -75,3 +72,4 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
     }
 }
+

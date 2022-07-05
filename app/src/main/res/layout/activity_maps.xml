@@ -4,15 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity">
-
+    tools:context=".MapsActivity"
+    android:padding="10dp"
+    android:background="@color/background">
 
 
 <androidx.fragment.app.FragmentContainerView
     android:id="@+id/map"
+    android:layout_marginTop="100dp"
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout="@android:layout/simple_spinner_dropdown_item" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="@string/tap_on_the_marker_and_then_at_the_bottom_right_tap_on_arrow_button_to_find_remaining_time_to_reach_your_location"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
 
 </FrameLayout>

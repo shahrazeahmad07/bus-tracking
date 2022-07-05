@@ -16,4 +16,5 @@
     <string name="submit">Submit</string>
     <string name="write_complain">Write Complain...</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="tap_on_the_marker_and_then_at_the_bottom_right_tap_on_arrow_button_to_find_remaining_time_to_reach_your_location">Tap on the marker and then at the bottom right tap on arrow button to find remaining time to reach your location</string>
 </resources>
