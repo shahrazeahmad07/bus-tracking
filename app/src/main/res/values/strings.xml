@@ -15,4 +15,5 @@
     <string name="route_schedule">05-07-22 Tuesday \n🇷‌🇴‌🇺‌🇹‌🇪‌ 🇹‌🇮‌🇲‌ 🇪‌ \nShuttle Route 12:15pm\n🇷‌🇦‌🇼‌🇦‌🇱‌🇵‌🇮‌🇳‌🇩‌🇮‌\nRij 11\nHashim 0312 3103583\nNoman 0313 8978836 \n🇮‌🇸‌🇱‌🇦‌🇲‌🇦‌🇧‌🇦‌🇩‌\nRpT 4473\nJavid 0312 5259567\nMumtaz 0311 5330337\n🇼‌🇦‌🇭‌🇨‌🇦‌🇳‌🇹‌🇹‌\nRpT 2371\nDost Muhammad 0306 5006255\n *2nd full Route 3:30pm\nSaddar to University 7pm\nRij 12\nSaifullah 0313 5093599\nJangeer 0345 5861776</string>
     <string name="submit">Submit</string>
     <string name="write_complain">Write Complain...</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
