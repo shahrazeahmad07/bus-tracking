@@ -57,7 +57,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:padding="10dp"
-        android:text="Bus Number: abc"
+        android:text="@string/location_of_bus_abc"
         android:background="@drawable/bus_list_view"
         android:textSize="18sp"
         android:textStyle="bold"
