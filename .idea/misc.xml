@@ -6,6 +6,7 @@
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/drawable/bus_list_view.xml" value="0.211" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/drawable/et_background.xml" value="0.183" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/drawable/home_screen_button.xml" value="0.2" />
+        <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_chat_box.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_complaint_box.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_home.xml" value="0.25" />
@@ -15,6 +16,7 @@
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_sign_in.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_student_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/activity_update_schedule.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/layout/fragment_maps.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/menu/home_screen_menu.xml" value="0.20416666666666666" />
       </map>

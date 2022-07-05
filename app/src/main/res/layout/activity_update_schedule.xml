@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateSchedule"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/etRouteSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:text="@string/route_schedule"
+        android:background="@drawable/et_background"
+        android:layout_margin="30dp"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:gravity="top"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textAllCaps="false"
+        android:padding="13dp"/>
+
+
+</LinearLayout>

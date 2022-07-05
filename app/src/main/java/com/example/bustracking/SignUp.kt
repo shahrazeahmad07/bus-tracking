@@ -45,7 +45,13 @@ class SignUp : AppCompatActivity() {
                             //! For Bus Driver
                             if (partsOfEmail[1] == "bus.com") {
                                 startActivity(Intent(this, Home::class.java))
-                            } else {
+                            }
+                            //! for Admin
+                            else if (partsOfEmail[1] == "admin.com") {
+                                startActivity(Intent(this, Admin::class.java))
+                            }
+                            //! for students.
+                            else {
                                 startActivity(Intent(this, StudentHome::class.java))
                             }
                             finish()
