@@ -17,6 +17,7 @@ class StudentHome : AppCompatActivity() {
         setContentView(R.layout.activity_student_home)
         binding = ActivityStudentHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = "Student Home"
         mAuth = FirebaseAuth.getInstance()
 
         binding.btnSchedule.setOnClickListener {
@@ -31,7 +32,9 @@ class StudentHome : AppCompatActivity() {
             startActivity(Intent(this, ComplaintBox::class.java))
         }
 
-        supportActionBar?.title = "Student Home"
+        binding.tvBus.setOnClickListener {
+            startActivity(Intent(this, MapsActivity::class.java))
+        }
     }
 
 

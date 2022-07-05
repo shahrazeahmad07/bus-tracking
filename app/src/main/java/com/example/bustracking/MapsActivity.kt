@@ -1,16 +1,15 @@
 package com.example.bustracking
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.example.bustracking.databinding.ActivityMapsBinding
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -22,11 +21,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
 
-    private lateinit var locationListener: LocationListener
-    private lateinit var locationManager: LocationManager
-
-    private var mLongitude = 0.0
-    private var mLatitude = 0.0
+    private var mLongitude = 71.0
+    private var mLatitude = 31.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,18 +39,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         databaseReference = FirebaseDatabase.getInstance().getReference("Locations")
         databaseReference.addValueEventListener( object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                TODO("Not yet implemented")
+
+//                var dLatitude = snapshot.child("abc").child("longitude").value.toString().substring(1, snapshot.child("abc").child("longitude").value.toString().length-1)
+                val Longitude = snapshot.value
+                val Latitude = snapshot.value
+
+                Log.e("Longitude:", "$Longitude")
+                Log.e("Latitude:", "$Latitude")
+
+                val latLng = LatLng(mLatitude, mLongitude)
+                mMap.addMarker(MarkerOptions().position(latLng))
+                mMap.animateCamera(
+                    CameraUpdateFactory.newLatLngZoom(
+                        latLng, 12.0f
+                    )
+                )
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
         })
-
-        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
-//        ActivityCompat.requestPermissions(this, [Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION], )
-
-
     }
 
     /**
@@ -68,49 +73,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-//        // Add a marker in Sydney and move the camera
-//        val sydney = LatLng(-34.0, 151.0)
-//        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
-        locationListener = LocationListener { location ->
-            try {
-                mLongitude = location.longitude
-                mLatitude = location.latitude
-
-                val username = mAuth.currentUser?.email.toString()
-                val partsOfEmail = username.split('@')
-                databaseReference.child(partsOfEmail[0]).child("latitude").push().setValue(mLatitude)
-                databaseReference.child(partsOfEmail[0]).child("longitude").push().setValue(mLongitude)
-            }catch (e: Exception) {
-
-            }
-        }
-
-
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
-        }
-        try {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000L, 5f, locationListener)
-        }catch (e: Exception) {
-
-        }
     }
 }

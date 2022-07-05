@@ -49,4 +49,18 @@
         android:background="@drawable/home_screen_button"
         android:layout_marginTop="15dp"/>
 
+    <TextView
+        android:id="@+id/tvBus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:padding="10dp"
+        android:text="Bus Number: abc"
+        android:background="@drawable/bus_list_view"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"/>
+
 </LinearLayout>
