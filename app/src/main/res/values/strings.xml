@@ -12,9 +12,9 @@
     <string name="share_location">Share Location</string>
     <string name="positive_location_status">Location is Sharing</string>
     <string name="stop_sharing">Stop Sharing</string>
-    <string name="route_schedule">05-07-22 Tuesday \n🇷‌🇴‌🇺‌🇹‌🇪‌ 🇹‌🇮‌🇲‌ 🇪‌ \nShuttle Route 12:15pm\n🇷‌🇦‌🇼‌🇦‌🇱‌🇵‌🇮‌🇳‌🇩‌🇮‌\nRij 11\nHashim 0312 3103583\nNoman 0313 8978836 \n🇮‌🇸‌🇱‌🇦‌🇲‌🇦‌🇧‌🇦‌🇩‌\nRpT 4473\nJavid 0312 5259567\nMumtaz 0311 5330337\n🇼‌🇦‌🇭‌🇨‌🇦‌🇳‌🇹‌🇹‌\nRpT 2371\nDost Muhammad 0306 5006255\n *2nd full Route 3:30pm\nSaddar to University 7pm\nRij 12\nSaifullah 0313 5093599\nJangeer 0345 5861776</string>
+    <string name="route_schedule">05–07–22 Tuesday \n🇷‌🇴‌🇺‌🇹‌🇪‌ 🇹‌🇮‌🇲‌ 🇪‌ \nShuttle Route 12:15pm\n🇷‌🇦‌🇼‌🇦‌🇱‌🇵‌🇮‌🇳‌🇩‌🇮‌\nRij 11\nHashim 0312 3103583\nNoman 0313 8978836 \n🇮‌🇸‌🇱‌🇦‌🇲‌🇦‌🇧‌🇦‌🇩‌\nRpT 4473\nJavid 0312 5259567\nMumtaz 0311 5330337\n🇼‌🇦‌🇭‌🇨‌🇦‌🇳‌🇹‌🇹‌\nRpT 2371\nDost Muhammad 0306 5006255\n *2nd full Route 3:30pm\nSaddar to University 7pm\nRij 12\nSaifullah 0313 5093599\nJangeer 0345 5861776</string>
     <string name="submit">Submit</string>
-    <string name="write_complain">Write Complain...</string>
+    <string name="write_complain">Write Complain…</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="tap_on_the_marker_and_then_at_the_bottom_right_tap_on_arrow_button_to_find_remaining_time_to_reach_your_location">Tap on the marker and then at the bottom right tap on arrow button to find remaining time to reach your location</string>
     <string name="location_of_bus_abc">Location of Bus: abc</string>
@@ -24,4 +24,6 @@
     <string name="complain_box">Complain Box</string>
     <string name="chat_box">Chat Box</string>
     <string name="update">Update</string>
+    <string name="bus">Bus:</string>
+    <string name="location_of_buses">Location of Buses:</string>
 </resources>

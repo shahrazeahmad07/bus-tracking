@@ -1,66 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentHome"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".StudentHome">
 
     <Button
         android:id="@+id/btnSchedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ShowSchedule"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="40dp"
-        android:background="@drawable/home_screen_button" />
+        android:background="@drawable/home_screen_button"
+        android:text="@string/ShowSchedule"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnChatBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/chat_box"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:layout_below="@+id/btnSchedule"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/home_screen_button"
-        android:layout_marginTop="15dp"/>
+        android:text="@string/chat_box"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnComplainBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/complain_box"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:layout_below="@+id/btnChatBox"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/home_screen_button"
-        android:layout_marginTop="15dp"/>
+        android:text="@string/complain_box"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvBus"
+        android:id="@+id/tvLocationOfBusTagLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:padding="10dp"
-        android:text="@string/location_of_bus_abc"
-        android:background="@drawable/bus_list_view"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/location_of_buses"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/purple_500"/>
+        android:layout_below="@+id/btnComplainBox"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"/>
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/black"
+        android:layout_below="@+id/tvLocationOfBusTagLine"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBusDrivers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvLocationOfBusTagLine"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="20dp" />
+
+</RelativeLayout>
