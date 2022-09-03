@@ -125,8 +125,11 @@ class Home : AppCompatActivity() {
 
                 val username = mAuth.currentUser?.email.toString()
                 val partsOfEmail = username.split('@')
-                databaseReference.child(partsOfEmail[0]).child("latitude").setValue(mLatitude)
-                databaseReference.child(partsOfEmail[0]).child("longitude").setValue(mLongitude)
+
+                val rvBusDriverModal = RVBusDriverModal(partsOfEmail[0], mLongitude, mLatitude)
+                databaseReference.child(partsOfEmail[0]).setValue(rvBusDriverModal)
+                //databaseReference.child(partsOfEmail[0]).child("latitude").setValue(mLatitude)
+                //databaseReference.child(partsOfEmail[0]).child("longitude").setValue(mLongitude)
             }catch (e: Exception) {
 
             }

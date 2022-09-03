@@ -1,6 +1,7 @@
 package com.example.bustracking
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bustracking.databinding.ActivityRouteScheduleBinding
 import com.google.firebase.database.*
@@ -24,7 +25,7 @@ class RouteSchedule : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@RouteSchedule, "Unable to fetch latest Schedule..", Toast.LENGTH_SHORT).show()
             }
         })
 
