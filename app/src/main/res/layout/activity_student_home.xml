@@ -51,28 +51,36 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvBus"
+        android:id="@+id/tvLocationOfBusTagLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnComplainBox"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/bus_list_view"
-        android:padding="10dp"
-        android:text="@string/location_of_bus_abc"
-        android:textColor="@color/purple_500"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
+        android:text="@string/location_of_buses"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnComplainBox"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/black"
+        android:layout_below="@+id/tvLocationOfBusTagLine"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBusDrivers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvBus" />
+        android:layout_below="@+id/tvLocationOfBusTagLine"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>

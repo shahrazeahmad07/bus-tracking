@@ -25,4 +25,5 @@
     <string name="chat_box">Chat Box</string>
     <string name="update">Update</string>
     <string name="bus">Bus:</string>
+    <string name="location_of_buses">Location of Buses:</string>
 </resources>

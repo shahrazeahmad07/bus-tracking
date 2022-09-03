@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter(private val rvBusDriverModalArrayList: ArrayList<RVBusDriverModal>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
+class RecyclerAdapter(private val rvBusDriverModalArrayList: ArrayList<RVBusDriverModal>, val recyclerAdapterInterface: RecyclerAdapterInterface) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
@@ -16,6 +16,9 @@ class RecyclerAdapter(private val rvBusDriverModalArrayList: ArrayList<RVBusDriv
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvBusName.text = rvBusDriverModalArrayList[position].userName
+        holder.itemView.setOnClickListener {
+            recyclerAdapterInterface.onBusClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -28,5 +31,9 @@ class RecyclerAdapter(private val rvBusDriverModalArrayList: ArrayList<RVBusDriv
         init {
             tvBusName = itemView.findViewById(R.id.tvBusName)
         }
+    }
+
+    interface RecyclerAdapterInterface {
+        fun onBusClick(position: Int)
     }
 }

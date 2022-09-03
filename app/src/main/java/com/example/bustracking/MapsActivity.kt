@@ -22,12 +22,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private var mLongitude = 71.0
     private var mLatitude = 31.0
+    private lateinit var busName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.title = "Bus: abc"
+        busName = intent.getStringExtra("busName").toString()
+        supportActionBar?.title = "Bus: $busName"
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -37,18 +39,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         mAuth = FirebaseAuth.getInstance()
         databaseReference = FirebaseDatabase.getInstance().getReference("Locations")
+
+    }
+
+    private fun setLocation() {
         databaseReference.addValueEventListener( object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
 //                var dLatitude = snapshot.child("abc").child("longitude").value.toString().substring(1, snapshot.child("abc").child("longitude").value.toString().length-1)
-                mLatitude = snapshot.child("abc").child("latitude").value as Double
-                mLongitude = snapshot.child("abc").child("longitude").value as Double
+                mLatitude = snapshot.child(busName).child("latitude").value as Double
+                mLongitude = snapshot.child(busName).child("longitude").value as Double
 
                 val latLng = LatLng(mLatitude, mLongitude)
                 mMap.addMarker(MarkerOptions().position(latLng).title(""))
                 mMap.animateCamera(
                     CameraUpdateFactory.newLatLngZoom(
-                        latLng, 12.0f
+                        latLng, 15.5f
                     )
                 )
             }
@@ -70,6 +76,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        setLocation()
     }
 }
 

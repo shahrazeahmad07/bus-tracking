@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +12,7 @@ import com.example.bustracking.databinding.ActivityStudentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-class StudentHome : AppCompatActivity() {
+class StudentHome : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterface {
     private lateinit var binding: ActivityStudentHomeBinding
     private lateinit var mAuth: FirebaseAuth
 
@@ -34,7 +35,7 @@ class StudentHome : AppCompatActivity() {
         databaseReference = firebaseDatabase.getReference("Locations")
 
         binding.rvBusDrivers.layoutManager = LinearLayoutManager(this)
-        rvAdapter = RecyclerAdapter(rvBusDriverModalArrayList)
+        rvAdapter = RecyclerAdapter(rvBusDriverModalArrayList, this)
         binding.rvBusDrivers.adapter = rvAdapter
         getAllBusDrivers()
 
@@ -49,10 +50,6 @@ class StudentHome : AppCompatActivity() {
         binding.btnComplainBox.setOnClickListener {
             startActivity(Intent(this, ComplaintBox::class.java))
         }
-
-        binding.tvBus.setOnClickListener {
-            startActivity(Intent(this, MapsActivity::class.java))
-        }
     }
     private fun getAllBusDrivers() {
         rvBusDriverModalArrayList.clear()
@@ -60,24 +57,28 @@ class StudentHome : AppCompatActivity() {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 snapshot.getValue(RVBusDriverModal::class.java)
                     ?.let { rvBusDriverModalArrayList.add(it) }
+                binding.progressBar.visibility = View.GONE
                 rvAdapter.notifyDataSetChanged()
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 snapshot.getValue(RVBusDriverModal::class.java)
                     ?.let { rvBusDriverModalArrayList.add(it) }
+                binding.progressBar.visibility = View.GONE
                 rvAdapter.notifyDataSetChanged()
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 snapshot.getValue(RVBusDriverModal::class.java)
                     ?.let { rvBusDriverModalArrayList.add(it) }
+                binding.progressBar.visibility = View.GONE
                 rvAdapter.notifyDataSetChanged()
             }
 
             override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
                 snapshot.getValue(RVBusDriverModal::class.java)
                     ?.let { rvBusDriverModalArrayList.add(it) }
+                binding.progressBar.visibility = View.GONE
                 rvAdapter.notifyDataSetChanged()
             }
 
@@ -100,5 +101,11 @@ class StudentHome : AppCompatActivity() {
             finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBusClick(position: Int) {
+        val intent = Intent(this, MapsActivity::class.java)
+        intent.putExtra("busName", rvBusDriverModalArrayList[position].userName)
+        startActivity(intent)
     }
 }
