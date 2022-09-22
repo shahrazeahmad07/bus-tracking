@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/drawable/home_screen_button.xml" value="0.2115" />
+        <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_admin.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_complaint_box.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_student_home.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_write_complain.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/item_student_complain.xml" value="0.20416666666666666" />

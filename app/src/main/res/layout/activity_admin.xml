@@ -1,44 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin"
     android:background="@color/background"
     android:orientation="vertical"
-    android:gravity="center">
+    android:paddingStart="40dp"
+    android:paddingEnd="40dp"
+    tools:context=".Admin">
 
     <Button
         android:id="@+id/btnUpdateSchedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/home_screen_button"
         android:text="@string/update_schedule"
-        android:textColor="@color/white"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/home_screen_button" />
-
+        android:textStyle="bold" />
 
 
     <Button
         android:id="@+id/btnShowComplaintBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/show_complaint_box"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_below="@+id/btnUpdateSchedule"
+        android:layout_marginTop="15dp"
         android:background="@drawable/home_screen_button"
-        android:layout_marginTop="15dp"/>
+        android:text="@string/show_complaint_box"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvBusTagline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnShowComplaintBox"
+        android:layout_marginTop="20dp"
+        android:text="@string/location_of_buses"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvBusTagline"
+        android:layout_marginBottom="20dp" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBusTagline"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true"
+        android:layout_marginTop="10dp"
+        android:indeterminateTint="@color/black"
+        android:id="@+id/progressBar"/>
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
