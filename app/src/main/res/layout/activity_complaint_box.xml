@@ -1,36 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ComplaintBox"
-    android:orientation="vertical"
     android:background="@color/background"
     android:gravity="center"
-    android:padding="30dp">
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".ComplaintBox">
 
-    <EditText
-        android:id="@+id/etComplainBox"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComplains"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="@drawable/et_background"
-        android:hint="@string/write_complain"
-        android:gravity="top"
-        android:padding="20dp"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:autofillHints="no"/>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnWriteComplain" />
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btnWriteComplain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
-        android:padding="12dp"
-        android:text="@string/submit"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="false"/>
+        android:background="@drawable/home_screen_button"
+        android:padding="7dp"
+        android:text="@string/write_complain"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
 
-</LinearLayout>
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/etComplainBox"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="500dp"-->
+    <!--        android:background="@drawable/et_background"-->
+    <!--        android:hint="@string/write_complain"-->
+    <!--        android:gravity="top"-->
+    <!--        android:padding="20dp"-->
+    <!--        android:textSize="16sp"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textColorHint="@color/black"-->
+    <!--        android:autofillHints="no"/>-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnSubmit"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:padding="12dp"-->
+    <!--        android:text="@string/submit"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:textAllCaps="false"/>-->
+
+</RelativeLayout>

@@ -1,12 +1,27 @@
 package com.example.bustracking
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bustracking.adapters.StudentComplainRecyclerAdapter
 import com.example.bustracking.databinding.ActivityComplaintBoxBinding
+import com.example.bustracking.modals.ComplainModal
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class ComplaintBox : AppCompatActivity() {
     private lateinit var binding: ActivityComplaintBoxBinding
+
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var databaseReference: DatabaseReference
+
+    private lateinit var complainModalArrayList: ArrayList<ComplainModal>
+
+    private lateinit var studentComplainRecyclerAdapter: StudentComplainRecyclerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint_box)
@@ -15,14 +30,56 @@ class ComplaintBox : AppCompatActivity() {
 
         supportActionBar?.title = "Complaint Box"
 
-        binding.btnSubmit.setOnClickListener {
-            if (binding.etComplainBox.text.isEmpty()) {
-                Toast.makeText(this, "Enter Your Complain first then press submit", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                binding.etComplainBox.setText("")
-                Toast.makeText(this, "Your Complain has been Submitted", Toast.LENGTH_SHORT).show()
-            }
+        //! btn Write Complain.
+        binding.btnWriteComplain.setOnClickListener {
+            startActivity(Intent(this, WriteComplain::class.java))
         }
+
+        //! initializing Array
+        complainModalArrayList = ArrayList()
+
+        //! firebase initializations
+        firebaseAuth = FirebaseAuth.getInstance()
+        val email = firebaseAuth.currentUser?.email.toString()
+        val username = email.split("@")[0]
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        databaseReference = firebaseDatabase.getReference("Complains").child(username)
+
+        //! recyclerView
+        binding.rvComplains.layoutManager = LinearLayoutManager(this)
+        studentComplainRecyclerAdapter = StudentComplainRecyclerAdapter(complainModalArrayList)
+        binding.rvComplains.adapter = studentComplainRecyclerAdapter
+
+        //! getting
+        getAllComplains()
+    }
+
+    private fun getAllComplains() {
+        complainModalArrayList.clear()
+        databaseReference.addChildEventListener(object: ChildEventListener {
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
+                studentComplainRecyclerAdapter.notifyDataSetChanged()
+            }
+
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
+                studentComplainRecyclerAdapter.notifyDataSetChanged()
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
+                studentComplainRecyclerAdapter.notifyDataSetChanged()
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
+                studentComplainRecyclerAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("implement later")
+            }
+        })
     }
 }

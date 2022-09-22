@@ -8,7 +8,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bustracking.adapters.RecyclerAdapter
 import com.example.bustracking.databinding.ActivityStudentHomeBinding
+import com.example.bustracking.modals.RVBusDriverModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -28,25 +30,31 @@ class StudentHome : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterfac
         binding = ActivityStudentHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.title = "Student Home"
-        mAuth = FirebaseAuth.getInstance()
 
         rvBusDriverModalArrayList = ArrayList()
+
+        //! firebase Initializations
+        mAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference = firebaseDatabase.getReference("Locations")
 
+        //! recycler View
         binding.rvBusDrivers.layoutManager = LinearLayoutManager(this)
         rvAdapter = RecyclerAdapter(rvBusDriverModalArrayList, this)
         binding.rvBusDrivers.adapter = rvAdapter
         getAllBusDrivers()
 
+        //! Schedule Button
         binding.btnSchedule.setOnClickListener {
             startActivity(Intent(this, RouteSchedule::class.java))
         }
 
+        //! ChatBox Button
         binding.btnChatBox.setOnClickListener {
             startActivity(Intent(this, ChatBox::class.java))
         }
 
+        //! Complain Button
         binding.btnComplainBox.setOnClickListener {
             startActivity(Intent(this, ComplaintBox::class.java))
         }

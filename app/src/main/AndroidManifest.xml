@@ -39,6 +39,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD1vzqDoImFoFvDCPEvqPN1NgKz9EUnAlc" />
 
+
+        <activity
+            android:name=".WriteComplain"
+            android:exported="false" />
         <activity
             android:name=".MapsActivity"
             android:exported="false"

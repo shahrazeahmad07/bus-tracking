@@ -1,4 +1,4 @@
-package com.example.bustracking
+package com.example.bustracking.modals
 
 import android.os.Parcel
 import android.os.Parcelable
