@@ -45,14 +45,14 @@ class Admin : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterface{
         //! getting all bus drivers
         getAllBusDrivers()
 
-        //! button update scheldule
+        //! button update schedule
         binding.btnUpdateSchedule.setOnClickListener {
             startActivity(Intent(this, UpdateSchedule::class.java))
         }
 
         //! button show complaint box
         binding.btnShowComplaintBox.setOnClickListener {
-            // Do nothing.
+            startActivity(Intent(this, AdminComplaintBox::class.java))
         }
     }
 

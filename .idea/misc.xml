@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/drawable/home_screen_button.xml" value="0.2115" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_admin_complaint_box.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_complaint_box.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_student_home.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/activity_write_complain.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/item_admin_complain.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/item_student_complain.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MiKeViZaSkI/Documents/Android/bus-tracking/app/src/main/res/layout/rv_item_bus_drivers.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MikeVizaski/Documents/android/BusTracking/app/src/main/res/drawable/bus_list_view.xml" value="0.211" />

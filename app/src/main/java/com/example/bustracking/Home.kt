@@ -65,56 +65,63 @@ class Home : AppCompatActivity() {
             checkLocationSharing()
             if (sharingLocation) {
                 if (!isLocationEnabled()) {
-            Toast.makeText(
-                this,
-                "Your location provider is turned off. Please turn it on.",
-                Toast.LENGTH_SHORT
-            ).show()
-            } else {
-                // For Getting current location of user please have a look at below link for better understanding
-                // https://www.androdocs.com/kotlin/getting-current-location-latitude-longitude-in-android-using-kotlin.html
-                Dexter.withActivity(this)
-                    .withPermissions(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    )
-                    .withListener(object : MultiplePermissionsListener {
-                        override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
-                            if (report!!.areAllPermissionsGranted()) {
-                                try {
-                                    if (ActivityCompat.checkSelfPermission(
-                                            applicationContext,
-                                            Manifest.permission.ACCESS_FINE_LOCATION
-                                        ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                                            applicationContext,
-                                            Manifest.permission.ACCESS_COARSE_LOCATION
-                                        ) != PackageManager.PERMISSION_GRANTED
-                                    ) {
-                                        return
+                    Toast.makeText(
+                        this,
+                        "Your location provider is turned off. Please turn it on.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    // For Getting current location of user please have a look at below link for better understanding
+                    // https://www.androdocs.com/kotlin/getting-current-location-latitude-longitude-in-android-using-kotlin.html
+                    Dexter.withActivity(this)
+                        .withPermissions(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        )
+                        .withListener(object : MultiplePermissionsListener {
+                            override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                                if (report!!.areAllPermissionsGranted()) {
+                                    try {
+                                        if (ActivityCompat.checkSelfPermission(
+                                                applicationContext,
+                                                Manifest.permission.ACCESS_FINE_LOCATION
+                                            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                                                applicationContext,
+                                                Manifest.permission.ACCESS_COARSE_LOCATION
+                                            ) != PackageManager.PERMISSION_GRANTED
+                                        ) {
+                                            return
+                                        }
+                                        locationManager.requestLocationUpdates(
+                                            LocationManager.NETWORK_PROVIDER,
+                                            5000L,
+                                            5f,
+                                            locationListener
+                                        )
+                                        locationManager.requestLocationUpdates(
+                                            LocationManager.GPS_PROVIDER,
+                                            5000L,
+                                            5f,
+                                            locationListener
+                                        )
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
                                     }
-                                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000L, 5f, locationListener)
-                                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000L, 5f, locationListener)
-                                }catch (e: Exception) {
-                                    e.printStackTrace()
                                 }
                             }
-                        }
 
-                        override fun onPermissionRationaleShouldBeShown(
-                            permissions: MutableList<PermissionRequest>?,
-                            token: PermissionToken?
-                        ) {
-                            showRationalDialogForPermissions()
-                        }
-                    }).onSameThread()
-                    .check()
-            }
-
+                            override fun onPermissionRationaleShouldBeShown(
+                                permissions: MutableList<PermissionRequest>?,
+                                token: PermissionToken?
+                            ) {
+                                showRationalDialogForPermissions()
+                            }
+                        }).onSameThread()
+                        .check()
+                }
 
 
-
-            }
-            else {
+            } else {
                 locationManager.removeUpdates(locationListener)
             }
         }
@@ -131,21 +138,16 @@ class Home : AppCompatActivity() {
                 databaseReference.child(partsOfEmail[0]).setValue(rvBusDriverModal)
                 //databaseReference.child(partsOfEmail[0]).child("latitude").setValue(mLatitude)
                 //databaseReference.child(partsOfEmail[0]).child("longitude").setValue(mLongitude)
-            }catch (e: Exception) {
+            } catch (e: Exception) {
 
             }
         }
 
 
-
-
     }
 
 
-
-
-
-//    //! Get Current Location
+    //    //! Get Current Location
 //    private fun getCurrentLocation() {
 //        if (!isLocationEnabled()) {
 //            Toast.makeText(
@@ -206,7 +208,7 @@ class Home : AppCompatActivity() {
 //            ) != PackageManager.PERMISSION_GRANTED
 //        ) {
 
-//            //    ActivityCompat#requestPermissions
+    //            //    ActivityCompat#requestPermissions
 //            // here to request the missing permissions, and then overriding
 //            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
 //            //                                          int[] grantResults)
@@ -273,7 +275,6 @@ class Home : AppCompatActivity() {
                 dialog.dismiss()
             }.show()
     }
-
 
 
     //! checking sharing location status

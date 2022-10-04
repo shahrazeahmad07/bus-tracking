@@ -47,7 +47,7 @@ class WriteComplain : AppCompatActivity() {
 //                hashMap["username"] = partsOfEmail[0]
 //                hashMap["complain"] = etComplain
 
-                databaseReference.child(partsOfEmail[0]).push().setValue(complain)
+                databaseReference.push().setValue(complain)
 //                binding.etComplainBox.setText("")
                 Toast.makeText(this, "Your Complain has been Submitted", Toast.LENGTH_SHORT).show()
                 finish()

@@ -22,6 +22,9 @@ class ComplaintBox : AppCompatActivity() {
 
     private lateinit var studentComplainRecyclerAdapter: StudentComplainRecyclerAdapter
 
+    private lateinit var email: String
+    private lateinit var username: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint_box)
@@ -40,10 +43,10 @@ class ComplaintBox : AppCompatActivity() {
 
         //! firebase initializations
         firebaseAuth = FirebaseAuth.getInstance()
-        val email = firebaseAuth.currentUser?.email.toString()
-        val username = email.split("@")[0]
+        email = firebaseAuth.currentUser?.email.toString()
+        username = email.split("@")[0]
         firebaseDatabase = FirebaseDatabase.getInstance()
-        databaseReference = firebaseDatabase.getReference("Complains").child(username)
+        databaseReference = firebaseDatabase.getReference("Complains")
 
         //! recyclerView
         binding.rvComplains.layoutManager = LinearLayoutManager(this)
@@ -56,29 +59,45 @@ class ComplaintBox : AppCompatActivity() {
 
     private fun getAllComplains() {
         complainModalArrayList.clear()
-        databaseReference.addChildEventListener(object: ChildEventListener {
+        databaseReference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
-                studentComplainRecyclerAdapter.notifyDataSetChanged()
+                snapshot.getValue(ComplainModal::class.java)?.let {
+                    if (it.author == username) {
+                        complainModalArrayList.add(it)
+                        studentComplainRecyclerAdapter.notifyDataSetChanged()
+                    }
+                }
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
-                studentComplainRecyclerAdapter.notifyDataSetChanged()
+                snapshot.getValue(ComplainModal::class.java)?.let {
+                    if (it.author == username) {
+                        complainModalArrayList.add(it)
+                        studentComplainRecyclerAdapter.notifyDataSetChanged()
+                    }
+                }
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
-                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
-                studentComplainRecyclerAdapter.notifyDataSetChanged()
+                snapshot.getValue(ComplainModal::class.java)?.let {
+                    if (it.author == username) {
+                        complainModalArrayList.add(it)
+                        studentComplainRecyclerAdapter.notifyDataSetChanged()
+                    }
+                }
             }
 
             override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-                snapshot.getValue(ComplainModal::class.java)?.let { complainModalArrayList.add(it) }
-                studentComplainRecyclerAdapter.notifyDataSetChanged()
+                snapshot.getValue(ComplainModal::class.java)?.let {
+                    if (it.author == username) {
+                        complainModalArrayList.add(it)
+                        studentComplainRecyclerAdapter.notifyDataSetChanged()
+                    }
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("implement later")
+                // Do nothing
             }
         })
     }
