@@ -13,6 +13,8 @@ import com.example.bustracking.databinding.ActivityStudentHomeBinding
 import com.example.bustracking.modals.RVBusDriverModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class StudentHome : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterface {
     private lateinit var binding: ActivityStudentHomeBinding
@@ -35,7 +37,7 @@ class StudentHome : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterfac
 
         //! firebase Initializations
         mAuth = FirebaseAuth.getInstance()
-        firebaseDatabase = FirebaseDatabase.getInstance()
+        firebaseDatabase = Firebase.database
         databaseReference = firebaseDatabase.getReference("Locations")
 
         //! recycler View

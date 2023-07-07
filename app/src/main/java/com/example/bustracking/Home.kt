@@ -21,6 +21,8 @@ import com.example.bustracking.modals.RVBusDriverModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -50,7 +52,7 @@ class Home : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.title = "Driver Home"
         mAuth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().getReference("Locations")
+        databaseReference = Firebase.database.getReference("Locations")
 
         sharingLocation = false
         checkLocationSharing()

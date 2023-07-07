@@ -5,6 +5,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bustracking.databinding.ActivityRouteScheduleBinding
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class RouteSchedule : AppCompatActivity() {
     private lateinit var binding: ActivityRouteScheduleBinding
@@ -17,7 +19,7 @@ class RouteSchedule : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.title = "Route Schedule"
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("RouteSchedule")
+        databaseReference = Firebase.database.getReference("RouteSchedule")
         databaseReference.addValueEventListener( object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 

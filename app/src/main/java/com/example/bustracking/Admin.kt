@@ -13,6 +13,8 @@ import com.example.bustracking.databinding.ActivityAdminBinding
 import com.example.bustracking.modals.RVBusDriverModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class Admin : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterface{
     private lateinit var binding: ActivityAdminBinding
@@ -34,7 +36,7 @@ class Admin : AppCompatActivity(), RecyclerAdapter.RecyclerAdapterInterface{
 
         //! firebase initializations.
         mAuth = FirebaseAuth.getInstance()
-        firebaseDatabase = FirebaseDatabase.getInstance()
+        firebaseDatabase = Firebase.database
         databaseReference = firebaseDatabase.getReference("Locations")
 
         //! recycler View for bus drivers

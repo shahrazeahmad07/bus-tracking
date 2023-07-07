@@ -10,6 +10,8 @@ import com.example.bustracking.databinding.ActivityComplaintBoxBinding
 import com.example.bustracking.modals.ComplainModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class ComplaintBox : AppCompatActivity() {
     private lateinit var binding: ActivityComplaintBoxBinding
@@ -45,7 +47,7 @@ class ComplaintBox : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         email = firebaseAuth.currentUser?.email.toString()
         username = email.split("@")[0]
-        firebaseDatabase = FirebaseDatabase.getInstance()
+        firebaseDatabase = Firebase.database
         databaseReference = firebaseDatabase.getReference("Complains")
 
         //! recyclerView
