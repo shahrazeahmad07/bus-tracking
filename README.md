@@ -4,12 +4,12 @@ Credentials:
 
 For Driver View:
 
-username: abc@bus.com
+username: bus1213@bus.com
 pass: 12344321
 
 For Student View:
 
-username: abc@student.com
+username: shahzaib@gmail.com
 pass: 12344321
 
 For Admin:
