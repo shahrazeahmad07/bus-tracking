@@ -6,18 +6,21 @@ For Driver View:
 
 username: bus1213@bus.com
 pass: 12344321
+
 (or you can reguster with any dummy email ending at @bus.com)
 
 For Student View:
 
 username: shahzaib@gmail.com
 pass: 12344321
+
 (or you can register with any dummy email)
 
 For Admin:
 
 username: admin@admin.com
 pass: 12344321
+
 (or you can register with any dummy email ending at @admin.com)
 
 If you wish to run the code by yourself, please add your own google maps api key in the manifent otherwise maps wont show in the app (this rule is not applied to just downloading and using the apk attached in this repo)
