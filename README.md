@@ -1,3 +1,5 @@
+## You have to add your own Google_Maps_API_Key in the manifest to view the map in student view.
+
 # University Route Tracking Application
 
 Credentials:
